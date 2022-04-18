@@ -1,0 +1,21 @@
+.App {
+    max-width: 980px;
+    margin: 0 auto
+}
+
+nav {
+    background-color: #00F;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+nav ul li a {
+    color: #FFF;
+}
