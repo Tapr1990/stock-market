@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Create() {
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,7 +34,7 @@ export default function Create() {
         body: JSON.stringify(formData)
     })
     .then(response => response.json())
-    .then(result =>);
+    .then(result => navigate("/detail/" + formData.code));
   }
 
 
