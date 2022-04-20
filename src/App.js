@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Create from './componets/Create';
+import Detail from './componets/Detail';
 import Home from './componets/Home';
 import Navbar from './componets/Navbar';
 
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home stocks={stocks}/>} />
           <Route path="/create" element={<Create />} />
-          
+          <Route path="/detail/:code" element={<Detail />} />
         </Routes>
       </div>
   
