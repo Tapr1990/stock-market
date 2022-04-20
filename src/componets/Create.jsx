@@ -22,6 +22,16 @@ export default function Create() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log("submit");
+
+    fetch("https://justivo.com/stockws.php?add", {
+        method: "Post",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(result =>);
   }
 
 
