@@ -10,19 +10,23 @@ export default function Detail() {
 
   useEffect( () => {
 
-    fetch("https://justivo.com/stockws.php?get&code=BST")
+    fetch("https://justivo.com/stockws.php?get&code=" + params.code)
     .then(response => response.json())
     .then(dataReceived => setStock(dataReceived));
-  }, []);
+  }, [params]);
 
   return (
-      <section key={stock.index}>
-        <h2>{stock.name}</h2>
-        <h3>{stock.code}</h3>
-        <div>
-            preço: {stock.price}
-        </div>
+    <>
+      {stock && (
+        <section>
+          <h2>{stock.name}</h2>
+          <h3>{stock.code}</h3>
+          <div>
+              preço: {stock.price}
+          </div>
         </section>
+    )}
+    </>
   )
 }
 /*<section key={stock.index}>
