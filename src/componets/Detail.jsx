@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 
 export default function Detail() {
 
-  const params = useParams();
+  const params = useParams();//para ir busacar os parametros do code
+
+  const [stock, setStock] = useState();
+
+  useEffect( () => {
+
+    fetch("https://justivo.com/stockws.php?get&code=BST")
+    .then(response => response.json())
+    .then(dataReceived => setStock(dataReceived));
+  }, []);
 
   return (
       <section key={stock.index}>
