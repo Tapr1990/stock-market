@@ -15,6 +15,13 @@ export default function Detail() {
     .then(dataReceived => setStock(dataReceived));
   }, [params]);
 
+  function toggleFavorite() {
+    setStock( prevState => ({
+      ...prevState,//é importante, para voltar a retribuir o array todo, spread operator é para utilizxar quando as coisas desaparecem
+      isFavorite: !prevState.isFavorite
+    }));
+  }
+
   return (
     <>
       {stock && (
@@ -24,18 +31,16 @@ export default function Detail() {
           <div>
               preço: {stock.price}
           </div>
+          <div>
+            <button onClick={toggleFavorite}>
+            {stock.isFavorite ? "Remover " : "Marcar "}
+            Favorito
+            </button>
+           
+          </div>
         </section>
     )}
     </>
   )
 }
-/*<section key={stock.index}>
-<h2>{stock.name}</h2>
-<h3>{stock.code}</h3>
-<div>
-    preço: {stock.price}
-</div>
-<div>
-    <NavLink to={"/detail/" + stock.code}>Ver Detalhe</NavLink>
-</div>
-</section>*/
+//{stock.isFavorite.toString()}
